@@ -1,7 +1,13 @@
 {
-  "name": "YOUR-PROJECT-NAME-HERE",
+  "name": "learnit",
   "description": "YOUR PROJECT DESCRIPTION HERE",
-  "author": "YOUR NAME <your@emailaddress.com>",
+  "author": "Trey Cordova <treycordova@hotmail.com>",
+  "contributors": [
+    {
+      "name" : "Jeremy Bernstein",
+      "email" : ""
+    }
+  ]
   "version": "0.0.1",
   "dependencies": {
     "connect": "1.8.5",
