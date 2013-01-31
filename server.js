@@ -2,7 +2,9 @@
 var connect = require('connect')
     , express = require('express')
     , io = require('socket.io')
-    , port = (process.env.PORT || 8081);
+    , port = (process.env.PORT || 8081)
+    , user = require('./models/user.js')
+    , db = require('./db.js');
 
 //Setup Express
 var server = express.createServer();
@@ -58,6 +60,11 @@ io.sockets.on('connection', function(socket){
 /////// ADD ALL YOUR ROUTES HERE  /////////
 
 server.get('/', function(req,res){
+        var q = db.query({key: 'username', equals:'trey'}).and({key: 'password', equals:'fluffyBunnies123'}).or({key: 'age', greaterThan:18});
+        var query = 'SELECT * FROM users WHERE'+q.str;
+        console.log('Query: '+query);
+
+      
   res.render('index.jade', {
     locals : { 
               title : 'Your Page Title'
