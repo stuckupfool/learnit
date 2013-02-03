@@ -1,4 +1,4 @@
-var db = require('../db.js');
+var db = require('../db');
 
 var user = function(data) {
     return this.constructor(data);
@@ -35,18 +35,22 @@ user.prototype = {
         return true;
     },
 
-    //db.get(this.table, db.query({key: 'username', equals: this.username}).and({key: 'age', greaterThan:18});
-    
-
-    authenticate: function(username, password) {
-        //var res = db.get(this.table, {username: username, util.hash(password)});
-        res=null;
-        if(res != null) {
-            this.id = res[0].id;
-            this.username = res[0].username;
-            this.email = res[0].email;
-            return this;
-        }
+    authenticate: function(username, password, callback) {
+        var self = this;
+        db.connect(function (err) {
+                var q = db.query({'key':'username', equals:username}).and({'key':'password', equals:password});
+                db.get('users','*',q,function(err, rows) {
+                        if(err != undefined){callback(err,0);}
+                        else if(rows.length == 1) {
+                            self.username = username;
+                            self.password = password;
+                            callback(null,1);
+                        }
+                        else if(rows.length == 0) {
+                            callback('incorrect credentials for '+username,0);
+                        }
+                    });
+            });
         return null;
     }
 };

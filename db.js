@@ -2,26 +2,41 @@ var mysql = require('mysql');
 
 var connection;
 
-exports.connect = function(data,callback) {
-    connection = mysql.createConnection(data);
+var credentials = {host: 'localhost', user: 'root', password: '', database: 'learnit'};
+
+exports.connect = function(callback) {
+    connection = mysql.createConnection(credentials);
     connection.connect(callback);
 };
 
-exports.get = function(table, query, callback, columns) {
-    if(columns == undefined){columns = '*';}
-    return connection.query('SELECT columns FROM ' + table + 'WHERE' + query, callback);
-}
-
-exports.insert = function(table, data) {
-    
+exports.add = function(table, data, callback) {
+    return connection.query('INSERT INTO ' + table + ' SET ?',data,callback);
 };
 
-exports.update = function(table, data) {
-    
+exports.remove = function(table, query, callback) {
+    return connection.query('DELETE FROM ' + table + ' WHERE ' + query.str, callback);
 };
 
-exports.delete = function(table, query, callback) {
-    return connection.query('DELETE FROM' + table + 'WHERE' + query, callback);
+exports.get = function(table, columns, query, callback) {
+    return connection.query('SELECT ' + columns + ' FROM ' + table + ' WHERE' + query.str, callback);
+};
+
+exports.set = function(table, data, where, callback) {
+    if(data.length == 0) {
+        callback('No fields were specified to be updated');
+        return;
+    }
+
+    var str = 'UPDATE ' + table + ' SET ';
+    for(field in data) {
+        str += field + ' = \'' + data[field] + '\', ';
+    }
+    str = str.slice(0,-2);
+
+    //Need to check if they supplied a where.
+    str += ' WHERE ' + where.str;
+
+    return connection.query(str,callback);
 };
 
 exports.query = function(data) {

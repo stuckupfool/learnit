@@ -15,6 +15,8 @@ html.no-js(lang='en')
     meta(name="description", content=description)
     meta(name="author", content=author)
     meta(name="viewport", content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/bootstrap-responseive.min.css')
     link(rel='stylesheet', href='/css/style.css')
     //-script(src='js/libs/modernizr-2.0.6.min.js')
   body
@@ -24,6 +26,7 @@ html.no-js(lang='en')
 
     block footer
       footer
+        script(src='/js/bootstrap.min.js')
         script(src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
         script
           window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\\/script>')
