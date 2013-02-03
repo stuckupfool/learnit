@@ -20,7 +20,7 @@ textarea {
 
 body {
     font-size: 1em;
-    line-height: 1.4;
+    line-height: 1.4em;
 }
 
 /*
@@ -90,11 +90,17 @@ textarea {
 }
 
 /* ==========================================================================
-   Author's custom styles
+   Application custom styles
    ========================================================================== */
 
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
 
-
+.form-horizontal {
+    margin-top: 20px;
+}
 
 
 

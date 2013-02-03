@@ -19,8 +19,12 @@ user.prototype = {
         return this;
     },
 
-    save: function() {
-        db.insert(this.table, {username: this.username, email: this.email, password: this.password});
+    save: function(callback) {
+        var self = this;
+        db.connect(function(err) {
+                if(err != undefined){throw err;}
+                db.add(self.table, {username: self.username, email: self.email, password: self.password}, callback);
+            });
     },
 
     update: function() {

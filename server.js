@@ -79,7 +79,7 @@ server.get('/', function(req,res){
       
   res.render('index.jade', {
     locals : { 
-              title : 'Learnit!',
+              title : 'Home',
               description: 'Your Page Description',
               author: 'Your Name',
               analyticssiteid: 'XXXXXXX',
@@ -91,10 +91,11 @@ server.get('/', function(req,res){
 server.get('/login',function(req,res) {
         res.render('login.jade', {
                 locals : { 
-                    title : 'Your Page Title'
+                    title : 'Login'
                         ,description: 'Your Page Description'
                         ,author: 'Your Name'
-                        ,analyticssiteid: 'XXXXXXX' 
+                        ,analyticssiteid: 'XXXXXXX',
+                        user: (req.session.user == undefined ? 'guest' : req.session.user)
                         }
             });
     });
@@ -116,6 +117,40 @@ server.post('/login',function(req,res) {
             });
     });
 
+server.get('/signup',function(req,res) {
+        res.render('signup.jade', {
+                locals : { 
+                    title : 'Signup'
+                        ,description: 'Your Page Description'
+                        ,author: 'Your Name'
+                        ,analyticssiteid: 'XXXXXXX',
+                        user: (req.session.user == undefined ? 'guest' : req.session.user)
+                        }
+            });
+    });
+
+server.post('/signup',function(req,res) {
+        var username = req.body.username;
+        var email = req.body.email;
+        var password = req.body.password;
+        var passwordConfirm = req.body.passwordConfirm;
+
+        if(password != passwordConfirm){return;}
+        
+        var u = new user.model({'username': username, 'password': password, 'email': email});
+
+        u.save(function(err) {
+                if(err != undefined){throw err;}
+                console.log('saved '+username);
+                req.session.user = username;
+                res.redirect('/');
+            });
+    });
+
+server.get('/logout',function(req,res) {
+        req.session.user = null;
+        res.redirect('/');
+    });
 
 //A Route for Creating a 500 Error (Useful to keep around)
 server.get('/500', function(req, res){

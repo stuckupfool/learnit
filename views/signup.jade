@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    div.hero-unit
+        h1 Sign Up
+        form(class="form-horizontal", action="/signup", method="post")
+            div.control-group
+                label(class="control-label", for="username") Username
+                div.controls
+                    input(type="text", name="username", id="username", required, placeholder="Username")
+            div.control-group
+                label(class="control-label", for="email") Email
+                div.controls
+                    input(type="text", name="email", id="email", required, placeholder="Email")
+            div.control-group
+                label(class="control-label", for="password") Password
+                div.controls
+                    input(type="password", name="password", id="password", required, placeholder="Password")
+            div.control-group
+                label(class="control-label", for="passwordConfirm") Password Confirmation
+                div.controls
+                    input(type="password", name="passwordConfirm", id="passwordConfirm", required, placeholder="Password Confirm")
+            div.control-group
+                div.controls
+                    button(type="submit", class="btn") Sign Up

@@ -21,8 +21,43 @@ html.no-js(lang='en')
     //-script(src='js/libs/modernizr-2.0.6.min.js')
   body
     block header
+      div(class="navbar navbar-inverse navbar-fixed-top")
+        div(class="navbar-inner")
+          div(class="container")
+            a(class="btn btn-navbar",data-toggle="collapse",data-target=".nav-collapse")
+              span(class="icon-bar")
+              span(class="icon-bar")
+              span(class="icon-bar")
+            a(class="brand",href="/") Learnit
+            div(class="nav-collapse")
+              ul(class="nav")
+                if title == "Home"
+                  li(class="active")
+                    a(href="/") Home
+                else
+                  li
+                    a(href="/") Home
+                
+                if user == 'guest'
+                  if title == "Login"
+                    li(class="active")
+                      a(href="/login") Login 
+                  else
+                    li
+                      a(href="/login") Login
+                  
+                  if title == "Signup"
+                    li(class="active")
+                      a(href="/signup") Signup 
+                  else
+                    li
+                      a(href="/signup") Signup
+                else
+                  li
+                    a(href="/logout") Logout
 
-    block content
+    div.container
+      block content
 
     block footer
       footer
