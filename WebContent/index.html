@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>LearnIt</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+</head>
+<body>
+	<div class="hero-unit">
+	<h1>LearnIt</h1>
+	<p>A web-based collaborative tool dedicated to helping you master various disciplines.</p>
+	</div>
+	
+	<img src="demoImages/keyboard.jpg" class="img-rounded">;
+	<div class="hero-unit">
+	<p>
+	<b>LearnIt is designed to increase your competence through:</b><br>
+	&diams; Taking tests.<br>
+	&diams; Demonstrating knowledge both to yourself and others.<br>
+	&diams; Execute learned material in novel environments.<br>
+	&diams; Mentor and teach others.<br>
+	&diams; Create an original work that demonstrates competence.<br></p>	
+	</div>
+	
+	<img src="demoImages/physics.jpg" class="img-rounded">;
+	<div class="hero-unit">
+	<p>Interact with our exciting learning modules while communicating with your peers,
+	mentors, and faculty. Submit your work, link elements to your portfolio, and
+	work your way towards becoming a level 4 learner where you're privileged to edit
+	and expand our content within LearnIt.
+	</p>
+	</div>
+	
+	<img src="demoImages/headstock.jpg" class="img-rounded">;
+	<div class="hero-unit">
+	<p>
+	Visually track the progress of 100-300 competencies per domain using LearnIt's
+	dynamic Gestalt Map. Competencies require the integration of explicit knowledge,
+	tactic knowledge, and experience, which will lead to mastery.
+	
+	</p>
+	</div>
+	
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</a> 
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active"><a href="index.html"><i class="icon-home"> </i> Home</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">Games <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li class="nav-header">Math / Science</li>
+								<li><a href="#">Calculus</a></li>
+								<li><a href="#">Physics</a></li>
+								<li class="divider"></li>
+								<li class="nav-header">Music</li>
+								<li><a href="#">Guitar</a></li>
+								<li><a href="#">Keyboard</a></li>
+							</ul>
+						</li>
+					</ul>
+					<form class="navbar-form pull-right">
+					<div class="btn-group">
+				
+					<a type="button" class="btn btn-primary" href="#login_modal" data-toggle="modal">Sign In</a>					
+					<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#" style="height: 20px; width: 17px"><span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li class="nav-header">via</li>
+							<li><a href="#"><i class="fbLogin"></i>Facebook</a></li>
+							<li><a href="#"><i class="googleLogin"></i>Google</a></li>
+						</ul>
+					</div>
+					<a type="button" class="btn" href="#signup_modal" data-toggle="modal">Register</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="signup_modal">
+		<div class="modal-header">		
+			<h3>Sign Up</h3>
+		</div>
+		<div class="modal-body">
+			<form class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label" for="firstname">First Name</label>
+					<div class="controls">
+						<input type="text" id="firstname" placeholder="First Name">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="lastname">Last Name</label>
+					<div class="controls">
+						<input type="text" id="lastname" placeholder="Last Name">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="email">Email</label>
+					<div class="controls">
+						<input type="text" id="email" placeholder="Email">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="birthdate">Date of Birth</label>
+					<div class="controls">
+						<input type="text" style="width:25px" id="birthdate" placeholder="MM">
+						<input type="text" style="width:25px" id="birthdate" placeholder="DD">
+						<input type="text" style="width:25px" id="birthdate" placeholder="YY">		
+					</div>
+				</div>				
+				<div class="control-group">
+					<label class="control-label" for="password">Password</label>
+					<div class="controls">
+						<input type="password" id="password" placeholder="Password">
+						<input type="password" id="reEnterPassword" placeholder="Re-enter Password">
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+					</div>
+				</div>
+			</form>
+		</div>
+			<div class="modal-footer">
+			<a href="#" class="btn btn-primary">Ok</a> 
+			<a href="#" class="btn" data-dismiss="modal">Cancel</a></div>
+	</div>
+	
+	<div class="modal fade" id="login_modal">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">&times;</a>
+			<h3>Sign In</h3>			
+		</div>
+		
+		<div class="modal-body">
+		<form class="form-horizontal">
+			<div class="control-group">
+				<label class="control-label" for="email">Email</label>
+				<div class="controls">
+					<input type="text" id="email" placeholder="Email">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputPassword">Password</label>
+				<div class="controls">
+					<input type="password" id="inputPassword" placeholder="Password">
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<label class="checkbox">
+					<input type="checkbox"> Remember me
+				</label>
+				</div>
+			</div>
+		</form>
+
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn btn-primary">Ok</a> 
+			<a href="#" class="btn" data-dismiss="modal">Cancel</a></div>
+	</div>
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	
+</body>
+</html>
